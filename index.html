@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>[6-Regis] Group Presentation: Proper Online Behavior</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+    <script src="js/angular.min.js"></script>
+  </head>
+
+  <body ng-app="PeerRatingApp" ng-cloak>
+
+    <div class="container" ng-controller="PeerRatingController">
+      <div class="header">
+        <h3 class="text-muted">6-Regis</h3>
+      </div>
+
+      <div class="row marketing">
+        <div class="panel panel-primary" ng-repeat="group in groups">
+          <div class="panel-heading">
+            <strong>Group {{ group.groupNumber }}</strong>
+          </div>
+          <div class="panel-body">
+            <div class="col-lg-12">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="inputGroup" class="col-sm-2 control-label">Group</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputGroup" placeholder="Group Members" ng-model="group.groupNames" ng-readonly="group.readOnly" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputContent" class="col-sm-2 control-label">Content</label>
+                  <div class="col-sm-10">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsContent" value="4" ng-model="group.scoreContent" ng-disabled="group.readOnly">
+                        4 - Shows a full understanding of the topic.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsContent" value="3" ng-model="group.scoreContent" ng-disabled="group.readOnly">
+                        3 - Shows a good understanding of the topic.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsContent" value="2" ng-model="group.scoreContent" ng-disabled="group.readOnly">
+                        2 - Shows a good understanding of some parts of the topic.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsContent" value="1" ng-model="group.scoreContent" ng-disabled="group.readOnly">
+                        1 - Does not seem to understand the topic very well.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPresentation" class="col-sm-2 control-label">Presentation</label>
+                  <div class="col-sm-10">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsPresentation" value="4" ng-model="group.scorePresentation" ng-disabled="group.readOnly">
+                        4 - Great choice of visual aids, graphics, pictures, and text. Everything is clear and organized.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsPresentation" value="3" ng-model="group.scorePresentation" ng-disabled="group.readOnly">
+                        3 - Good choice of graphics, and text. A few parts are not so clear.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsPresentation" value="2" ng-model="group.scorePresentation" ng-disabled="group.readOnly">
+                        2 - Graphics and text are present but not very appealing. Many parts are not clear.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsPresentation" value="1" ng-model="group.scorePresentation" ng-disabled="group.readOnly">
+                        1 - Poor choice of graphics and text. Many parts are not clear and can be confusing.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputDelivery" class="col-sm-2 control-label">Delivery</label>
+                  <div class="col-sm-10">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsDelivery" value="4" ng-model="group.scoreDelivery" ng-disabled="group.readOnly">
+                        4 - Speaks clearly and distinctly all the time.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsDelivery" value="3" ng-model="group.scoreDelivery" ng-disabled="group.readOnly">
+                        3 - Speaks clearly and distinctly most of the time.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsDelivery" value="2" ng-model="group.scoreDelivery" ng-disabled="group.readOnly">
+                        2 - Mumbles sometimes and hard to understand.
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="optionsDelivery" value="1" ng-model="group.scoreDelivery" ng-disabled="group.readOnly">
+                        1 - Mumbles often and cannot be understood.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputBest" class="col-sm-2 control-label">Best Part</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputBest" placeholder="Name one thing you liked from the presentation." ng-model="group.best" ng-readonly="group.readOnly" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputImprovement" class="col-sm-2 control-label">Improvement</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputImprovement" placeholder="Name one thing you want the group to improve on." ng-model="group.improvement" ng-readonly="group.readOnly" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Total Score</label>
+                  <div class="col-sm-10">
+                    <div class="form-control">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ getScoreOfGroup($index) }}" aria-valuemin="0" aria-valuemax="12" style="width: {{ getScoreOfGroup($index)/12*100|number:0 }}%;" ng-class="(getScoreOfGroup($index) < 8) ? 'progress-bar-warning':''">
+                          <span>{{ getScoreOfGroup($index) }} out of 12</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" ng-click="submitScores($index)" ng-disabled="group.readOnly">Submit Scores</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <pre>{{ groups|json }}</pre>
+
+      <div class="footer">
+        <p>&copy; SHS-AdC ICT 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect('http://10.3.37.21:3000');
+    </script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

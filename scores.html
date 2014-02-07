@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>[6-Regis] Group Presentation: Proper Online Behavior</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container" ng-controller="ScoresDisplayController">
+      <div class="header">
+        <h3 class="text-muted">6-Regis</h3>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <h3>Group 1</h3>
+          <div class="col-xs-4">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <strong>Content</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group1scoreContent"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <strong>Presentation</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group1scorePresentation"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <strong>Delivery</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group1scoreDelivery"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <h3>Group 2</h3>
+          <div class="col-xs-4">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <strong>Content</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group2scoreContent"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <strong>Presentation</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group2scorePresentation"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <strong>Delivery</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group2scoreDelivery"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <h3>Group 3</h3>
+          <div class="col-xs-4">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <strong>Content</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group3scoreContent"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <strong>Presentation</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group3scorePresentation"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <strong>Delivery</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group3scoreDelivery"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <h3>Group 4</h3>
+          <div class="col-xs-4">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <strong>Content</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group4scoreContent"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <strong>Presentation</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group4scorePresentation"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <strong>Delivery</strong>
+              </div>
+              <div class="panel-body">
+                <div class="jumbotron">
+                  <h1 id="group4scoreDelivery"></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>&copy; SHS-AdC ICT 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      $(document).ready(function(){
+          var socket = io.connect('http://10.3.37.21:3000');
+          socket.on('getScores', function (data) {
+              $('#group1scoreContent').text(
+                data[0].scoreContent.average.toFixed(1)
+              );
+              $('#group1scorePresentation').text(
+                data[0].scorePresentation.average.toFixed(1)
+              );
+              $('#group1scoreDelivery').text(
+                data[0].scoreDelivery.average.toFixed(1)
+              );
+
+              $('#group2scoreContent').text(
+                data[1].scoreContent.average.toFixed(1)
+              );
+              $('#group2scorePresentation').text(
+                data[1].scorePresentation.average.toFixed(1)
+              );
+              $('#group2scoreDelivery').text(
+                data[1].scoreDelivery.average.toFixed(1)
+              );
+
+              $('#group3scoreContent').text(
+                data[2].scoreContent.average.toFixed(1)
+              );
+              $('#group3scorePresentation').text(
+                data[2].scorePresentation.average.toFixed(1)
+              );
+              $('#group3scoreDelivery').text(
+                data[2].scoreDelivery.average.toFixed(1)
+              );
+
+              $('#group4scoreContent').text(
+                data[3].scoreContent.average.toFixed(1)
+              );
+              $('#group4scorePresentation').text(
+                data[3].scorePresentation.average.toFixed(1)
+              );
+              $('#group4scoreDelivery').text(
+                data[3].scoreDelivery.average.toFixed(1)
+              );
+          });
+      });
+    </script>
+  </body>
+</html>
