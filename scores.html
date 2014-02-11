@@ -117,7 +117,7 @@
       $(document).ready(function(){
         var socket = io.connect('http://10.3.37.21:3000');
         socket.on('getScores', function (data) {
-          for (var i = 0; i < 4; i++){
+          for (var i = 0; i < 10; i++){
             $('#group' + (i + 1) + 'progressContent')
               .attr('style',
                 'width: ' + data[i].scoreContent.average/4 * 100 + '%');
