@@ -5,9 +5,11 @@ angular.module('PeerRatingApp', ['PeerRatingApp.controllers']);
 
 angular.module('PeerRatingApp.controllers', [])
     .controller('PeerRatingController', ['$scope', function($scope) {
-        $scope.groups = [
-            {
-                groupNumber: 1,
+        $scope.groups = []
+
+        for (var i = 0; i < 10; i++){
+            $scope.groups.push({
+                groupNumber: i + 1,
                 groupNames: null,
                 scoreContent: 0,
                 scorePresentation: 0,
@@ -15,38 +17,9 @@ angular.module('PeerRatingApp.controllers', [])
                 best: null,
                 improvement: null,
                 readOnly: false
-            },
-            {
-                groupNumber: 2,
-                groupNames: null,
-                scoreContent: 0,
-                scorePresentation: 0,
-                scoreDelivery: 0,
-                best: null,
-                improvement: null,
-                readOnly: false
-            },
-            {
-                groupNumber: 3,
-                groupNames: null,
-                scoreContent: 0,
-                scorePresentation: 0,
-                scoreDelivery: 0,
-                best: null,
-                improvement: null,
-                readOnly: false
-            },
-            {
-                groupNumber: 4,
-                groupNames: null,
-                scoreContent: 0,
-                scorePresentation: 0,
-                scoreDelivery: 0,
-                best: null,
-                improvement: null,
-                readOnly: false
-            }
-        ];
+            });
+        }
+
 
         $scope.submitScores = function(index) {
             socket.emit('submitScores', $scope.groups[index]);
@@ -61,12 +34,7 @@ angular.module('PeerRatingApp.controllers', [])
             score += parseInt($scope.groups[index].scoreDelivery);
 
             return score;
-        }
-
-        $scope.getColorOfScoreBar = function(score) {
-            return score < 8
-        }
-
+        };
     }])
     .controller('ScoresDisplayController', ['$scope', function($scope) {
         $scope.total_scores = window.total_scores;
@@ -91,6 +59,8 @@ angular.module('PeerRatingApp.controllers', [])
                 'Speaks clearly and distinctly all the time.',
             ]
         };
+
+        $scope.groups = [1,2,3,4,5,6,7,8,9,10];
 
         $scope.getScoreDescription = function (category, score) {
             score = parseInt(score);

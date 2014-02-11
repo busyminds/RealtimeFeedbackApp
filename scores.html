@@ -15,9 +15,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/jumbotron-narrow.css" rel="stylesheet">
+    <script src="js/angular.min.js"></script>
   </head>
 
-  <body>
+  <body ng-app="PeerRatingApp">
 
     <div class="container" ng-controller="ScoresDisplayController">
       <div class="header">
@@ -25,157 +26,72 @@
       </div>
 
       <div class="row marketing">
-        <div class="col-lg-12">
-          <h3>Group 1</h3>
-          <div class="col-xs-4">
-            <div class="panel panel-success">
-              <div class="panel-heading">
-                <strong>Content</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group1scoreContent"></h1>
+        <div class="col-lg-12" ng-repeat="group in groups">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <strong>Group {{ group }}</strong>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-3">
+                  <p class="text-right text-success">Content</p>
+                </div>
+                <div class="col-xs-9">
+                  <div class="progress">
+                    <div id="group{{ group }}progressContent" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=0 aria-valuemin="0" aria-valuemax="4">
+                      <span id="group{{ group }}scoreContent">0.0</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <strong>Presentation</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group1scorePresentation"></h1>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p id="group{{ group }}textContent" class="text-center"></p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <strong>Delivery</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group1scoreDelivery"></h1>
+              <hr>
+              <div class="row">
+                <div class="col-xs-3">
+                  <p class="text-right text-success">Presentation</p>
+                </div>
+                <div class="col-xs-9">
+                  <div class="progress">
+                    <div id="group{{ group }}progressPresentation" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=0 aria-valuemin="0" aria-valuemax="4">
+                      <span id="group{{ group }}scorePresentation">0.0</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <h3>Group 2</h3>
-          <div class="col-xs-4">
-            <div class="panel panel-success">
-              <div class="panel-heading">
-                <strong>Content</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group2scoreContent"></h1>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p id="group{{ group }}textPresentation" class="text-center"></p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <strong>Presentation</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group2scorePresentation"></h1>
+              <hr>
+              <div class="row">
+                <div class="col-xs-3">
+                  <p class="text-right text-success">Delivery</p>
+                </div>
+                <div class="col-xs-9">
+                  <div class="progress">
+                    <div id="group{{ group }}progressDelivery" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow=0 aria-valuemin="0" aria-valuemax="4">
+                      <span id="group{{ group }}scoreDelivery">0.0</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <strong>Delivery</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group2scoreDelivery"></h1>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p id="group{{ group }}textDelivery" class="text-center"></p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <h3>Group 3</h3>
-          <div class="col-xs-4">
-            <div class="panel panel-success">
-              <div class="panel-heading">
-                <strong>Content</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group3scoreContent"></h1>
+              <hr>
+              <div class="row">
+                <div class="col-xs-3">
+                  <h1 class="text-right text-primary"><strong>Total</strong></h1>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <strong>Presentation</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group3scorePresentation"></h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <strong>Delivery</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group3scoreDelivery"></h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-12">
-          <h3>Group 4</h3>
-          <div class="col-xs-4">
-            <div class="panel panel-success">
-              <div class="panel-heading">
-                <strong>Content</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group4scoreContent"></h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <strong>Presentation</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group4scorePresentation"></h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="panel panel-warning">
-              <div class="panel-heading">
-                <strong>Delivery</strong>
-              </div>
-              <div class="panel-body">
-                <div class="jumbotron">
-                  <h1 id="group4scoreDelivery"></h1>
+                <div class="col-xs-9">
+                  <h1 id="group{{ group }}scoreTotal" class="text-right text-primary">0.0</h1>
                 </div>
               </div>
             </div>
@@ -196,51 +112,79 @@
     <script src="js/jquery-2.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
     <script>
       $(document).ready(function(){
-          var socket = io.connect('http://10.3.37.21:3000');
-          socket.on('getScores', function (data) {
-              $('#group1scoreContent').text(
-                data[0].scoreContent.average.toFixed(1)
-              );
-              $('#group1scorePresentation').text(
-                data[0].scorePresentation.average.toFixed(1)
-              );
-              $('#group1scoreDelivery').text(
-                data[0].scoreDelivery.average.toFixed(1)
-              );
+        var socket = io.connect('http://10.3.37.21:3000');
+        socket.on('getScores', function (data) {
+          for (var i = 0; i < 4; i++){
+            $('#group' + (i + 1) + 'progressContent')
+              .attr('style',
+                'width: ' + data[i].scoreContent.average/4 * 100 + '%');
+            $('#group' + (i + 1) + 'scoreContent').text(
+              data[i].scoreContent.average.toFixed(1)
+            );
+            $('#group' + (i + 1) + 'textContent').text(
+              getTextDescription(data[i].scoreContent.average, 'content')
+            );
 
-              $('#group2scoreContent').text(
-                data[1].scoreContent.average.toFixed(1)
-              );
-              $('#group2scorePresentation').text(
-                data[1].scorePresentation.average.toFixed(1)
-              );
-              $('#group2scoreDelivery').text(
-                data[1].scoreDelivery.average.toFixed(1)
-              );
+            $('#group' + (i + 1) + 'progressPresentation')
+              .attr('style',
+                'width: ' + data[i].scorePresentation.average/4 * 100 + '%');
+            $('#group' + (i + 1) + 'scorePresentation').text(
+              data[i].scorePresentation.average.toFixed(1)
+            );
+            $('#group' + (i + 1) + 'textPresentation').text(
+              getTextDescription(data[i].scoreContent.average, 'presentation')
+            );
 
-              $('#group3scoreContent').text(
-                data[2].scoreContent.average.toFixed(1)
-              );
-              $('#group3scorePresentation').text(
-                data[2].scorePresentation.average.toFixed(1)
-              );
-              $('#group3scoreDelivery').text(
-                data[2].scoreDelivery.average.toFixed(1)
-              );
+            $('#group' + (i + 1) + 'progressDelivery')
+              .attr('style',
+                'width: ' + data[i].scoreDelivery.average/4 * 100 + '%');
+            $('#group' + (i + 1) + 'scoreDelivery').text(
+              data[i].scoreDelivery.average.toFixed(1)
+            );
+            $('#group' + (i + 1) + 'textDelivery').text(
+              getTextDescription(data[i].scoreContent.average, 'delivery')
+            );
 
-              $('#group4scoreContent').text(
-                data[3].scoreContent.average.toFixed(1)
-              );
-              $('#group4scorePresentation').text(
-                data[3].scorePresentation.average.toFixed(1)
-              );
-              $('#group4scoreDelivery').text(
-                data[3].scoreDelivery.average.toFixed(1)
-              );
-          });
+            var total = parseFloat(data[i].scoreContent.average.toFixed(1));
+            total += parseFloat(data[i].scorePresentation.average.toFixed(1));
+            total += parseFloat(data[i].scoreDelivery.average.toFixed(1));
+
+            $('#group' + (i + 1) + 'progressTotal')
+              .attr('style',
+                'width: ' + total/12 * 100 + '%');
+            $('#group' + (i + 1) + 'scoreTotal').text(total);
+          }
+        });
       });
+
+      function getTextDescription (score, category) {
+        score_descriptions = {
+          content: [
+            'Does not seem to understand the topic very well.',
+            'Shows a good understanding of some parts of the topic.',
+            'Shows a good understanding of the topic.',
+            'Shows a full understanding of the topic.'
+          ],
+          presentation: [
+            'Poor choice of graphics and text. Many parts are not clear and can be confusing.',
+            'Graphics and text are present but not very appealing. Many parts are not clear.',
+            'Good choice of graphics, and text. A few parts are not so clear.',
+            'Great choice of visual aids, graphics, pictures, and text. Everything is clear and organized.'
+          ],
+          delivery: [
+            'Mumbles often and cannot be understood.',
+            'Mumbles sometimes and hard to understand.',
+            'Speaks clearly and distinctly most of the time.',
+            'Speaks clearly and distinctly all the time.',
+          ]
+        };
+
+        return score_descriptions[category][Math.round(score) - 1];
+      }
+
     </script>
   </body>
 </html>

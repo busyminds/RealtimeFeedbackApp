@@ -12,9 +12,11 @@ var app = http.createServer(function(req, res) {
 // Socket.io server listens to our app
 var io = require('socket.io').listen(app);
 
-var scores = [
-	{
-		groupNumber: 1,
+var scores = []
+
+for (var i = 0; i < 10; i++){
+	scores.push({
+		groupNumber: i + 1,
 		scoreContent: {
 			total: 0,
 			number: 0,
@@ -30,62 +32,8 @@ var scores = [
 			number: 0,
 			average: 0
 		}
-	},
-	{
-		groupNumber: 2,
-		scoreContent: {
-			total: 0,
-			number: 0,
-			average: 0
-		},
-		scorePresentation: {
-			total: 0,
-			number: 0,
-			average: 0
-		},
-		scoreDelivery: {
-			total: 0,
-			number: 0,
-			average: 0
-		}
-	},
-	{
-		groupNumber: 3,
-		scoreContent: {
-			total: 0,
-			number: 0,
-			average: 0
-		},
-		scorePresentation: {
-			total: 0,
-			number: 0,
-			average: 0
-		},
-		scoreDelivery: {
-			total: 0,
-			number: 0,
-			average: 0
-		}
-	},
-	{
-		groupNumber: 4,
-		scoreContent: {
-			total: 0,
-			number: 0,
-			average: 0
-		},
-		scorePresentation: {
-			total: 0,
-			number: 0,
-			average: 0
-		},
-		scoreDelivery: {
-			total: 0,
-			number: 0,
-			average: 0
-		}
-	}
-];
+	});
+}
 
 var updateScores = function (index, data) {
 	scores[index].scoreContent.total += parseInt(data.scoreContent);
