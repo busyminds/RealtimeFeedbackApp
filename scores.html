@@ -88,10 +88,10 @@
               <hr>
               <div class="row">
                 <div class="col-xs-3">
-                  <h1 class="text-right text-primary"><strong>Total</strong></h1>
+                  <h1 class="text-right text-success"><strong>Total <span id="group{{ group }}submissions"></span></strong></h1>
                 </div>
                 <div class="col-xs-9">
-                  <h1 id="group{{ group }}scoreTotal" class="text-right text-primary">0.0</h1>
+                  <h1 id="group{{ group }}scoreTotal" class="text-right text-success"><strong>0.0</strong></h1>
                 </div>
               </div>
             </div>
@@ -155,7 +155,7 @@
             $('#group' + (i + 1) + 'progressTotal')
               .attr('style',
                 'width: ' + total/12 * 100 + '%');
-            $('#group' + (i + 1) + 'scoreTotal').text(total);
+            $('#group' + (i + 1) + 'scoreTotal strong').text(total);
           }
         });
       });

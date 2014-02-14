@@ -127,21 +127,9 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputBest" class="col-sm-2 control-label">Best Part</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputBest" placeholder="Name one thing you liked from the presentation." ng-model="group.best" ng-readonly="group.readOnly" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputImprovement" class="col-sm-2 control-label">Improvement</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputImprovement" placeholder="Name one thing you want the group to improve on." ng-model="group.improvement" ng-readonly="group.readOnly" required>
-                  </div>
-                </div>
-                <div class="form-group">
                   <label class="col-sm-2 control-label">Total Score</label>
                   <div class="col-sm-10">
-                    <div class="form-control">
+                    <div class="form-control-static">
                       <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="{{ getScoreOfGroup($index) }}" aria-valuemin="0" aria-valuemax="12" style="width: {{ getScoreOfGroup($index)/12*100|number:0 }}%;" ng-class="(getScoreOfGroup($index) < 8) ? 'progress-bar-warning':''">
                           <span>{{ getScoreOfGroup($index) }} out of 12</span>
