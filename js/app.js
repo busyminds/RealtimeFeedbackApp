@@ -7,15 +7,12 @@ angular.module('PeerRatingApp.controllers', [])
     .controller('PeerRatingController', ['$scope', function($scope) {
         $scope.groups = []
 
-        for (var i = 0; i < 10; i++){
+        for (var i = 0; i < 1; i++){
             $scope.groups.push({
                 groupNumber: i + 1,
-                groupNames: null,
                 scoreContent: 0,
                 scorePresentation: 0,
                 scoreDelivery: 0,
-                best: null,
-                improvement: null,
                 readOnly: false
             });
         }
@@ -60,7 +57,7 @@ angular.module('PeerRatingApp.controllers', [])
             ]
         };
 
-        $scope.groups = [1,2,3,4,5,6,7,8,9,10];
+        $scope.groups = [1];
 
         $scope.getScoreDescription = function (category, score) {
             score = parseInt(score);

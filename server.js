@@ -14,7 +14,7 @@ var io = require('socket.io').listen(app);
 
 var scores = []
 
-for (var i = 0; i < 10; i++){
+for (var i = 0; i < 1; i++){
 	scores.push({
 		groupNumber: i + 1,
 		scoreContent: {
